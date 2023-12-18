@@ -5,19 +5,23 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 
 const ZenPlanet = ({ isRotating, ...props }) => {
   const planetRef = useRef();
-  const planet = useGLTF(zenScene);
+  const { scene, animations } = useGLTF(zenScene);
+  const { actions } = useAnimations(animations, planetRef);
 
   useFrame((_, delta) => {
-    //use frame second param takes in delta
-    if (isRotating) {
-      //controls speed of rotation
-      planetRef.current.rotation.y += 0.1 * delta;
-    }
+    // //use frame second param takes in delta
+    // if (isRotating) {
+    //   //controls speed of rotation
+    //   planetRef.current.rotation.y += 0.1 * delta;
+    // }
+
+    actions["Scene"].play();
+
   });
 
   return (
     <mesh ref={planetRef} {...props}>
-      <primitive  object={planet.scene} />
+      <primitive object={scene} />
     </mesh>
   );
 };

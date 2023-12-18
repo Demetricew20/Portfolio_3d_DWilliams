@@ -13,9 +13,9 @@ import Galaxy from "../models/Galaxy";
 import Earth from "../models/Earth";
 import AlienPlanet from "../models/AlienPlanet";
 import ZenPlanet from "../models/ZenPlanet";
-import ForestPlanet from "../models/ForestPlanet";
 import MonsterPlanet from "../models/MonsterPlanet";
 import Cosmonaut from "../models/Cosmonaut";
+import TreasurePlanet from "../models/TreasurePlanet";
 
 const Home = () => {
   // audio
@@ -31,9 +31,8 @@ const Home = () => {
     planetOne: [0, -12, -22],
     planetTwo: [35, -5, -30],
     planetThree: [-20, -5, -15],
-    planetFour: [0, -1, -8]
-
-  }
+    planetFour: [0, -1, -8],
+  };
 
   useEffect(() => {
     if (isPlayingMusic) {
@@ -93,7 +92,13 @@ const Home = () => {
         className={`w-full bg-black h-screen ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
         }`}
-        camera={{ fov: 90, near: 1, far: 1000 }}
+        camera={{
+          fov: 90,
+          near: 1,
+          far: 1000,
+          position: [0, 0, 10],
+          rotation: [-0.35, 0, 0],
+        }}
       >
         <Suspense fallback={<Loader />}>
           {/* simulates light that comes from a distance (i.e. Sun light)*/}
@@ -106,19 +111,29 @@ const Home = () => {
             groundColor="#000000"
             intensity={1}
           />
-          {/* <Earth isRotating={isRotating} position={[0, 0, 0]} scale={1} /> */}
-          <AlienPlanet isRotating={isRotating} position={[-20, -5, -15]} />
-          <ZenPlanet isRotating={isRotating} position={[35, -5, -30]} />
-          <ForestPlanet isRotating={isRotating} position={[1, -2, -1]} scale={1.5} />
-          <MonsterPlanet isRotating={isRotating} position={[0, -4, -40]} scale={[.25, .25, 1]} />
+          <AlienPlanet isRotating={isRotating} position={[-40, -5, -15]} />
+          <ZenPlanet isRotating={isRotating} position={[50, -5, -30]} />
+          <TreasurePlanet
+            isRotating={isRotating}
+            position={[0, -5, 3.75]}
+            scale={0.035}
+            rotation-y={0.25}
+          />
+          <MonsterPlanet
+            isRotating={isRotating}
+            position={[0, 2, -40]}
+            scale={[0.25, 0.25, 1]}
+          />
 
           {/* <Bird isRotating={isRotating} /> */}
           {/* <Sky isRotating={isRotating} /> */}
-          <Galaxy
+
+          <Earth
             isRotating={isRotating}
-            position={[100, 50, -500]}
-            scale={[1, 1, 1]}
+            position={[0, -2.5, -4]}
+            scale={0.75}
           />
+
           {/* <Island
             position={islandPosition}
             scale={islandScale}
@@ -134,7 +149,17 @@ const Home = () => {
             isRotating={isRotating}
             rotation={[0, 20, 0]}
           /> */}
-          <Cosmonaut scale={1} position={[-2, -.5, 1]}  />
+          <Cosmonaut
+            scale={0.005}
+            position={[-1.5, -1.5, 8]}
+            rotation-y={-0.05}
+          />
+
+          <Galaxy
+            isRotating={isRotating}
+            position={[-47, -50, 0]}
+            scale={[30, 25, 10]}
+          />
         </Suspense>
       </Canvas>
 

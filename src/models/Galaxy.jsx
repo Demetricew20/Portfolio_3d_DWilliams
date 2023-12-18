@@ -5,19 +5,21 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 
 const Galaxy = ({ isRotating, ...props }) => {
   const galaxyRef = useRef();
-  const galaxy = useGLTF(galaxyScene);
+  const { scene, animations } = useGLTF(galaxyScene);
+  const { actions } = useAnimations(animations, galaxyRef);
 
   useFrame((_, delta) => {
-    //use frame second param takes in delta
     if (isRotating) {
       //controls speed of rotation
-      galaxyRef.current.rotation.y += 0.1 * delta;
     }
+
+    galaxyRef.current.scale.x += 0.00025;
+    galaxyRef.current.scale.y += 0.00035;
   });
 
   return (
-    <mesh>
-      <primitive {...props} object={galaxy.scene} ref={galaxyRef} />
+    <mesh ref={galaxyRef} layers={10} {...props}>
+      <primitive object={scene} />
     </mesh>
   );
 };

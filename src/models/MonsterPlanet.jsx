@@ -5,19 +5,16 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 
 const MonsterPlanet = ({ isRotating, ...props }) => {
   const planetRef = useRef();
-  const planet = useGLTF(monsterScene);
+  const { scene, animations } = useGLTF(monsterScene);
+  const { actions } = useAnimations(animations, planetRef);
 
   useFrame((_, delta) => {
-    //use frame second param takes in delta
-    if (isRotating) {
-      //controls speed of rotation
-      planetRef.current.rotation.y += 0.1 * delta;
-    }
+    actions["Main Animation 001"].play();
   });
 
   return (
-    <mesh {...props} ref={planetRef}>
-      <primitive object={planet.scene} />
+    <mesh {...props} layers={2} ref={planetRef}>
+      <primitive object={scene} />
     </mesh>
   );
 };

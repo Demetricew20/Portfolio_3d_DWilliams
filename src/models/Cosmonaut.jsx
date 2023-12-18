@@ -5,21 +5,16 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 
 const Cosmonaut = ({ isRotating, ...props }) => {
   const ref = useRef();
-  const cosmonaut = useGLTF(cosmoScene);
+  const { scene, animations } = useGLTF(cosmoScene);
+  const { actions } = useAnimations(animations, ref);
 
-  ref.current.rotation.y = -.25;
-  
   useFrame((_, delta) => {
-    //use frame second param takes in delta
-    if (isRotating) {
-      //controls speed of rotation
-      ref.current.rotation.y += 0.1 * delta;
-    }
+    actions["Take 001"].play();
   });
 
   return (
     <mesh {...props} ref={ref}>
-      <primitive object={cosmonaut.scene} />
+      <primitive object={scene} />
     </mesh>
   );
 };
