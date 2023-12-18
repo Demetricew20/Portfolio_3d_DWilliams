@@ -9,6 +9,7 @@ import HomeInfo from "../components/HomeInfo";
 
 import sakura from "../assets/sakura.mp3";
 import { soundoff, soundon } from "../assets/icons";
+import Galaxy from "../models/Galaxy";
 
 const Home = () => {
   // audio
@@ -75,14 +76,14 @@ const Home = () => {
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
       <Canvas
-        className={`w-full h-screen bg-transparent ${
+        className={`w-full bg-black h-screen ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
         }`}
         camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
           {/* simulates light that comes from a distance (i.e. Sun light)*/}
-          <directionalLight position={[1, 1, 1]} intensity={2} />
+          <directionalLight position={[1, 1, 1]} intensity={0} />
           {/* equally lights elements in rendering  */}
           <ambientLight intensity={0.5} />
           {/* illuminates screen with a gradient. helps bring details on rendering out */}
@@ -93,7 +94,8 @@ const Home = () => {
           />
 
           <Bird isRotating={isRotating} />
-          <Sky isRotating={isRotating} />
+          {/* <Sky isRotating={isRotating} /> */}
+          <Galaxy isRotating={isRotating} position={[300, 10, 50]} scale={[1, 1, 1]} />
           <Island
             position={islandPosition}
             scale={islandScale}
