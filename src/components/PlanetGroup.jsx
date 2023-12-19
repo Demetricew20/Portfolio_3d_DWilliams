@@ -17,12 +17,12 @@ const PlanetGroup = ({
   isRotating,
   setIsRotating,
   currentFocusPoint,
+  setCurrentStage,
   ...props
 }) => {
   const groupRef = useRef();
   const [rotatingRight, setRotatingRight] = useState(false);
   const [rotatingLeft, setRotatingLeft] = useState(false);
-  const [currentStage, setCurrentStage] = useState();
   const { gl, viewport } = useThree();
 
   const lastX = useRef(0);
@@ -171,9 +171,9 @@ const PlanetGroup = ({
         rotateLeft={rotatingLeft}
         isRotating={isRotating}
         position={planetPositions.stageOne}
+        setCurrentStage={setCurrentStage}
         scale={[0.055, 0.035, 0.05]}
         rotation-y={0.25}
-
       />
 
       {/* Zen Planet */}
@@ -185,6 +185,7 @@ const PlanetGroup = ({
         position={planetPositions.stageTwo}
         planetScene={zenPlanetScene}
         defaultStage={2}
+        setCurrentStage={setCurrentStage}
         scale={[0.95, 0.675, 0.75]}
       />
       {/* Monster Planet */}
@@ -197,6 +198,7 @@ const PlanetGroup = ({
         scale={[0.25, 0.275, 0.25]}
         planetScene={monsterPlanetScene}
         defaultStage={3}
+        setCurrentStage={setCurrentStage}
         rotation-y={1.25}
       />
       {/* Alien Planet */}
@@ -208,6 +210,7 @@ const PlanetGroup = ({
         position={planetPositions.stageFour}
         defaultStage={4}
         planetScene={alienPlanetScene}
+        setCurrentStage={setCurrentStage}
         scale={[1.35, 1, 1.15]}
         rotation-y={0.15}
       />

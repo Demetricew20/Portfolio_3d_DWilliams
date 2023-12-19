@@ -30,6 +30,7 @@ const CanvasGroup = ({
         setIsRotating={setIsRotating}
         currentFocusPoint={currentFocusPoint}
         isRotating={isRotating}
+        setCurrentStage={setCurrentStage}
       />
 
       <Earth isRotating={isRotating} position={[0, -2.5, -4]} scale={0.75} />

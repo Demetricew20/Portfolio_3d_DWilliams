@@ -10,6 +10,7 @@ const Planet = ({
   rotateLeft,
   defaultStage,
   planetScene,
+  setCurrentStage,
   ...props
 }) => {
   const planetRef = useRef();
@@ -111,9 +112,10 @@ const Planet = ({
       }
 
       if (
-        planetRef.current.position.x <= planetPositions.stageOne[0] &&
-        planetRef.current.position.y <= planetPositions.stageOne[1]
+        planetRef.current.position.x <= planetPositions.stageOne[0] + 1 &&
+        planetRef.current.position.y <= planetPositions.stageOne[1] + 1
       ) {
+        setCurrentStage(defaultStage);
         setFirstStage(true);
         setSecondStage(false);
       }
@@ -179,7 +181,6 @@ const Planet = ({
     }
 
     if (isHovered && !isRotating) {
-      console.log("hovering");
       planetRef.current.rotation.y -= 0.0005;
     }
 
