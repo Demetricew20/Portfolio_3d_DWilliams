@@ -1,11 +1,11 @@
 import React, { Suspense, useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
-import Loader from "../components/Loader";
+import Loader from "../components/Loader.jsx";
 import HomeInfo from "../components/HomeInfo";
 
 import outerSpaceSound from "../assets/outer_space.mp3";
 import { soundoff, soundon } from "../assets/icons";
-import CanvasGroup from "../components/CanvasGroup";
+import CanvasGroup from "../components/CanvasGroup.jsx";
 
 const Home = () => {
   // audio

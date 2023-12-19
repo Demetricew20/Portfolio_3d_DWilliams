@@ -2,16 +2,12 @@ import React, { useRef, useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { a } from "@react-spring/three";
-import TreasurePlanet from "../models/Planet";
 import treasurePlanetScene from "../assets/3d/treasure_planet.glb";
 import zenPlanetScene from "../assets/3d/zen_planet.glb";
 import monsterPlanetScene from "../assets/3d/monster_planet.glb";
 import alienPlanetScene from "../assets/3d/alien_planet.glb";
-import ZenPlanet from "../models/ZenPlanet";
-import AlienPlanet from "../models/AlienPlanet";
-import MonsterPlanet from "../models/MonsterPlanet";
 import { planetPositions } from "../constants";
-import Planet from "../models/Planet";
+import Planet from "../models/Planet.jsx";
 
 const PlanetGroup = ({
   isRotating,

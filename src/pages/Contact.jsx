@@ -2,9 +2,9 @@ import React, { useState, useRef, Suspense } from "react";
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import Fox from "../models/Fox";
-import Loader from "../components/Loader";
-import useAlert from "../hooks/useAlert";
-import Alert from "../components/Alert";
+import Loader from "../components/Loader.jsx";
+import useAlert from "../hooks/useAlert.js";
+import Alert from "../components/Alert.jsx";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -75,7 +75,7 @@ const Contact = () => {
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
-      {alert.show &&  <Alert {...alert} />}
+      {alert.show && <Alert {...alert} />}
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Get in Touch</h1>
 

@@ -1,15 +1,10 @@
 import React, { useRef, useEffect } from "react";
-import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import AlienPlanet from "../models/AlienPlanet";
 import { a } from "@react-spring/three";
-import ZenPlanet from "../models/ZenPlanet";
-import TreasurePlanet from "../models/Planet";
-import MonsterPlanet from "../models/MonsterPlanet";
-import Earth from "../models/Earth";
-import Cosmonaut from "../models/Cosmonaut";
-import Galaxy from "../models/Galaxy";
-import PlanetGroup from "./PlanetGroup";
+import Earth from "../models/Earth.jsx";
+import Cosmonaut from "../models/Cosmonaut.jsx";
+import Galaxy from "../models/Galaxy.jsx";
+import PlanetGroup from "./PlanetGroup.jsx";
 
 const CanvasGroup = ({
   isRotating,
