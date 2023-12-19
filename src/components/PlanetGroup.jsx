@@ -36,23 +36,23 @@ const PlanetGroup = ({
     setIsRotating(false);
   };
 
-  const handlePointerMove = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
+  // const handlePointerMove = (e) => {
+  //   e.stopPropagation();
+  //   e.preventDefault();
 
-    if (isRotating) {
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  //   if (isRotating) {
+  //     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 
-      //calculates change in horizontal position
-      const delta = (clientX - lastX.current) / viewport.width;
+  //     //calculates change in horizontal position
+  //     const delta = (clientX - lastX.current) / viewport.width;
 
-      groupRef.current.rotation.y += delta * 0.01 * Math.PI;
+  //     groupRef.current.rotation.y += delta * 0.01 * Math.PI;
 
-      lastX.current = clientX;
+  //     lastX.current = clientX;
 
-      rotationSpeed.current = delta * 0.01 * Math.PI;
-    }
-  };
+  //     rotationSpeed.current = delta * 0.01 * Math.PI;
+  //   }
+  // };
 
   const handlePointerDown = (e) => {
     e.stopPropagation();
@@ -69,24 +69,20 @@ const PlanetGroup = ({
     //will need to use breakpoints if I use this method
     if (clientX > 700) {
       setRotatingRight(true);
+      setRotatingLeft(false);
     } else {
-      setRotatingLeft(true);
+      // setRotatingLeft(true);
+      // setRotatingRight(false);
     }
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "ArrowLeft") {
-      if (!isRotating) {
-        setIsRotating(true);
-        groupRef.current.rotation.y += 0.01 * Math.PI;
-        rotationSpeed.current = 0.0125;
-      }
+      // setRotatingLeft(true);
+      // setRotatingRight(false);
     } else if (e.key === "ArrowRight") {
-      console.log("key", e.key);
-
       setIsRotating(true);
-      groupRef.current.rotation.y -= 0.01 * Math.PI;
-      rotationSpeed.current = -0.0125;
+      setRotatingRight(true);
     }
   };
 
@@ -98,19 +94,16 @@ const PlanetGroup = ({
 
   useFrame(() => {
     if (!isRotating) {
-      // makes models slower as they come to a complete stop
-      rotationSpeed.current *= dampingFactor;
-
-      //brings models to complete stop
-      if (Math.abs(rotationSpeed.current) < 0.001) {
-        rotationSpeed.current = 0;
-      }
-
-      groupRef.current.rotation.y += rotationSpeed.current;
+      // // makes models slower as they come to a complete stop
+      // rotationSpeed.current *= dampingFactor;
+      // //brings models to complete stop
+      // if (Math.abs(rotationSpeed.current) < 0.001) {
+      //   rotationSpeed.current = 0;
+      // }
+      // groupRef.current.rotation.y += rotationSpeed.current;
     } else {
       // When rotating, determine the current stage based on island's orientation
-      const rotation = groupRef.current.rotation.y;
-
+      // const rotation = groupRef.current.rotation.y;
       /**
        * Normalize the rotation value to ensure it stays within the range [0, 2 * Math.PI].
        * The goal is to ensure that the rotation value remains within a specific range to
@@ -129,7 +122,6 @@ const PlanetGroup = ({
        */
       //   const normalizedRotation =
       //     ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-
       //   // Set the current stage based on the island's orientation
       //   // Stages can be considered stopping points where we would want to display info
       //   switch (true) {
@@ -156,18 +148,18 @@ const PlanetGroup = ({
     // event listeners that allow us to rotate using touch device, mouse, or keyboard
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointerdown", handlePointerDown);
-    canvas.addEventListener("pointermove", handlePointerMove);
+    // canvas.addEventListener("pointermove", handlePointerMove);
     document.addEventListener("keyup", handleKeyUp);
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       canvas.removeEventListener("pointerup", handlePointerUp);
       canvas.removeEventListener("pointerdown", handlePointerDown);
-      canvas.removeEventListener("pointermove", handlePointerMove);
+      // canvas.removeEventListener("pointermove", handlePointerMove);
       document.removeEventListener("keyup", handleKeyUp);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+  }, [gl, handlePointerDown, handlePointerUp]);
 
   return (
     <a.group ref={groupRef}>
@@ -181,6 +173,7 @@ const PlanetGroup = ({
         position={planetPositions.stageOne}
         scale={[0.055, 0.035, 0.05]}
         rotation-y={0.25}
+
       />
 
       {/* Zen Planet */}
@@ -201,7 +194,7 @@ const PlanetGroup = ({
         rotateRight={rotatingRight}
         rotateLeft={rotatingLeft}
         position={planetPositions.stageThree}
-        scale={[.25, .275, .25]}
+        scale={[0.25, 0.275, 0.25]}
         planetScene={monsterPlanetScene}
         defaultStage={3}
         rotation-y={1.25}

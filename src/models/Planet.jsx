@@ -21,6 +21,7 @@ const Planet = ({
   const [isSecondStage, setSecondStage] = useState(false);
   const [isThirdStage, setThirdStage] = useState(false);
   const [isFourthStage, setFourthStage] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const moveToFourthStage = () => {
     if (rotateRight) {
@@ -120,7 +121,6 @@ const Planet = ({
   };
 
   const setStage = () => {
-    console.log("setting stage");
     switch (defaultStage) {
       case 1:
         setFirstStage(true);
@@ -151,7 +151,7 @@ const Planet = ({
     }
   };
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     if (defaultStage == 1) {
       actions["Scene"].play();
     }
@@ -176,6 +176,11 @@ const Planet = ({
         console.log(
           `Can not run animations for planet at stage ${defaultStage}.`
         );
+    }
+
+    if (isHovered && !isRotating) {
+      console.log("hovering");
+      planetRef.current.rotation.y -= 0.0005;
     }
 
     if (isRotating) {
@@ -219,7 +224,12 @@ const Planet = ({
   scene.renderOrder = 1;
 
   return (
-    <mesh {...props} ref={planetRef}>
+    <mesh
+      {...props}
+      ref={planetRef}
+      onPointerEnter={(event) => (event.stopPropagation(), setIsHovered(true))}
+      onPointerLeave={(event) => setIsHovered(false)}
+    >
       <primitive object={scene} />
     </mesh>
   );

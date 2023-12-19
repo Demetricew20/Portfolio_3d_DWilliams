@@ -113,58 +113,6 @@ const Home = () => {
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
           />
-
-          {/* <AlienPlanet isRotating={isRotating} position={[-40, -5, -15]} />
-          <ZenPlanet isRotating={isRotating} position={[50, -5, -30]} />
-          <TreasurePlanet
-            isRotating={isRotating}
-            position={[0, -5, 3.75]}
-            scale={0.035}
-            rotation-y={0.25}
-          />
-          <MonsterPlanet
-            isRotating={isRotating}
-            position={[0, 2, -40]}
-            scale={[0.25, 0.25, 1]}
-          />
-
-          {/* <Bird isRotating={isRotating} /> */}
-          {/* <Sky isRotating={isRotating} /> */}
-
-          {/* <Earth
-            isRotating={isRotating}
-            position={[0, -2.5, -4]}
-            scale={0.75}
-          /> */}
-
-          {/* <Island
-            position={islandPosition}
-            scale={islandScale}
-            rotation={islandRotation}
-            isRotating={isRotating}
-            setIsRotating={setIsRotating}
-            setCurrentStage={setCurrentStage}
-          /> */}
-
-          {/* <Plane
-            position={planePosition}
-            scale={planeScale}
-            isRotating={isRotating}
-            rotation={[0, 20, 0]}
-          /> */}
-          {/* <Cosmonaut
-            scale={0.005}
-            position={[-1.5, -1.5, 8]}
-            rotation-y={-0.05}
-          />
-
-          <Galaxy
-            isRotating={isRotating}
-            position={[-47, -50, 0]}
-            scale={[30, 25, 10]}
-            setIsRotating={setIsRotating}
-            setCurrentStage={setCurrentStage}
-          />  */}
         </Suspense>
       </Canvas>
 
