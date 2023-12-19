@@ -35,7 +35,7 @@ const CanvasGroup = ({
 
       <Earth isRotating={isRotating} position={[0, -2.5, -4]} scale={0.75} />
 
-      <Cosmonaut scale={0.005} position={[-1.5, -1.5, 8]} rotation-y={-0.05} />
+      <Cosmonaut scale={0.0055} position={[-2.5, -1.5, 8]} rotation-y={-0.05} />
 
       <Galaxy
         isRotating={isRotating}

@@ -1,26 +1,15 @@
 import React, { Suspense, useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
-import Island from "../models/Island";
-import Sky from "../models/Sky";
-import Plane from "../models/Plane";
-import Bird from "../models/Bird";
 import HomeInfo from "../components/HomeInfo";
 
-import sakura from "../assets/sakura.mp3";
+import outerSpaceSound from "../assets/outer_space.mp3";
 import { soundoff, soundon } from "../assets/icons";
-import Galaxy from "../models/Galaxy";
-import Earth from "../models/Earth";
-import AlienPlanet from "../models/AlienPlanet";
-import ZenPlanet from "../models/ZenPlanet";
-import MonsterPlanet from "../models/MonsterPlanet";
-import Cosmonaut from "../models/Cosmonaut";
-import TreasurePlanet from "../models/Planet";
 import CanvasGroup from "../components/CanvasGroup";
 
 const Home = () => {
   // audio
-  const audioRef = useRef(new Audio(sakura));
+  const audioRef = useRef(new Audio(outerSpaceSound));
   audioRef.current.volume = 0.4;
   audioRef.current.loop = true;
 
@@ -79,7 +68,7 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
-      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+      <div className="absolute top-20 left-0 right-0 z-10 flex items-center justify-center">
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
       <Canvas
