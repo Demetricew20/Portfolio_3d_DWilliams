@@ -4,7 +4,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import AlienPlanet from "../models/AlienPlanet";
 import { a } from "@react-spring/three";
 import ZenPlanet from "../models/ZenPlanet";
-import TreasurePlanet from "../models/TreasurePlanet";
+import TreasurePlanet from "../models/Planet";
 import MonsterPlanet from "../models/MonsterPlanet";
 import Earth from "../models/Earth";
 import Cosmonaut from "../models/Cosmonaut";

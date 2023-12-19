@@ -2,10 +2,16 @@ import React, { useRef, useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { a } from "@react-spring/three";
-import TreasurePlanet from "../models/TreasurePlanet";
+import TreasurePlanet from "../models/Planet";
+import treasurePlanetScene from "../assets/3d/treasure_planet.glb";
+import zenPlanetScene from "../assets/3d/zen_planet.glb";
+import monsterPlanetScene from "../assets/3d/monster_planet.glb";
+import alienPlanetScene from "../assets/3d/alien_planet.glb";
 import ZenPlanet from "../models/ZenPlanet";
 import AlienPlanet from "../models/AlienPlanet";
 import MonsterPlanet from "../models/MonsterPlanet";
+import { planetPositions } from "../constants";
+import Planet from "../models/Planet";
 
 const PlanetGroup = ({
   isRotating,
@@ -16,14 +22,13 @@ const PlanetGroup = ({
   const groupRef = useRef();
   const [rotatingRight, setRotatingRight] = useState(false);
   const [rotatingLeft, setRotatingLeft] = useState(false);
+  const [currentStage, setCurrentStage] = useState();
   const { gl, viewport } = useThree();
 
   const lastX = useRef(0);
   //controls speed of rotation and how fast it stops after rotating
   const rotationSpeed = useRef(0);
   const dampingFactor = 0.95;
-
-  let treasurePlanetPosition = [0, -5, 3.75];
 
   const handlePointerUp = (e) => {
     e.stopPropagation();
@@ -166,22 +171,52 @@ const PlanetGroup = ({
 
   return (
     <a.group ref={groupRef}>
-      <TreasurePlanet
+      {/* TreasurePlanet */}
+      <Planet
+        defaultStage={1}
+        planetScene={treasurePlanetScene}
         rotateRight={rotatingRight}
         rotateLeft={rotatingLeft}
         isRotating={isRotating}
-        position={treasurePlanetPosition}
-        scale={0.035}
+        position={planetPositions.stageOne}
+        scale={[0.055, 0.035, 0.05]}
         rotation-y={0.25}
       />
-      <ZenPlanet isRotating={isRotating} position={[50, -5, -30]} />
 
-      <AlienPlanet isRotating={isRotating} position={[-40, -5, -15]} />
+      {/* Zen Planet */}
 
-      <MonsterPlanet
+      <Planet
+        rotateRight={rotatingRight}
+        rotateLeft={rotatingLeft}
         isRotating={isRotating}
-        position={[0, 2, -40]}
-        scale={[0.25, 0.25, 1]}
+        position={planetPositions.stageTwo}
+        planetScene={zenPlanetScene}
+        defaultStage={2}
+        scale={[0.95, 0.675, 0.75]}
+      />
+      {/* Monster Planet */}
+
+      <Planet
+        isRotating={isRotating}
+        rotateRight={rotatingRight}
+        rotateLeft={rotatingLeft}
+        position={planetPositions.stageThree}
+        scale={[.25, .275, .25]}
+        planetScene={monsterPlanetScene}
+        defaultStage={3}
+        rotation-y={1.25}
+      />
+      {/* Alien Planet */}
+
+      <Planet
+        isRotating={isRotating}
+        rotateRight={rotatingRight}
+        rotateLeft={rotatingLeft}
+        position={planetPositions.stageFour}
+        defaultStage={4}
+        planetScene={alienPlanetScene}
+        scale={[1.35, 1, 1.15]}
+        rotation-y={0.15}
       />
     </a.group>
   );

@@ -15,7 +15,7 @@ import AlienPlanet from "../models/AlienPlanet";
 import ZenPlanet from "../models/ZenPlanet";
 import MonsterPlanet from "../models/MonsterPlanet";
 import Cosmonaut from "../models/Cosmonaut";
-import TreasurePlanet from "../models/TreasurePlanet";
+import TreasurePlanet from "../models/Planet";
 import CanvasGroup from "../components/CanvasGroup";
 
 const Home = () => {

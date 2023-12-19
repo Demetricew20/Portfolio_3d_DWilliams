@@ -226,3 +226,10 @@ export const projects = [
         link: 'https://github.com/adrianhajdin/project_ai_summarizer',
     }
 ];
+
+export const planetPositions = {
+    stageOne: [0, -5, 3.75],
+    stageTwo: [40, -5, -15],
+    stageThree: [0, 2, -20],
+    stageFour: [-40, -5, -15],
+};
