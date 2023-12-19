@@ -16,6 +16,7 @@ import ZenPlanet from "../models/ZenPlanet";
 import MonsterPlanet from "../models/MonsterPlanet";
 import Cosmonaut from "../models/Cosmonaut";
 import TreasurePlanet from "../models/TreasurePlanet";
+import CanvasGroup from "../components/CanvasGroup";
 
 const Home = () => {
   // audio
@@ -26,13 +27,6 @@ const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
   let [isPlayingMusic, setIsPlayingMusic] = useState(false);
-
-  let planetPositions = {
-    planetOne: [0, -12, -22],
-    planetTwo: [35, -5, -30],
-    planetThree: [-20, -5, -15],
-    planetFour: [0, -1, -8],
-  };
 
   useEffect(() => {
     if (isPlayingMusic) {
@@ -111,7 +105,16 @@ const Home = () => {
             groundColor="#000000"
             intensity={1}
           />
-          <AlienPlanet isRotating={isRotating} position={[-40, -5, -15]} />
+
+          <CanvasGroup
+            isRotating={isRotating}
+            position={[-47, -50, 0]}
+            scale={[30, 25, 10]}
+            setIsRotating={setIsRotating}
+            setCurrentStage={setCurrentStage}
+          />
+
+          {/* <AlienPlanet isRotating={isRotating} position={[-40, -5, -15]} />
           <ZenPlanet isRotating={isRotating} position={[50, -5, -30]} />
           <TreasurePlanet
             isRotating={isRotating}
@@ -128,11 +131,11 @@ const Home = () => {
           {/* <Bird isRotating={isRotating} /> */}
           {/* <Sky isRotating={isRotating} /> */}
 
-          <Earth
+          {/* <Earth
             isRotating={isRotating}
             position={[0, -2.5, -4]}
             scale={0.75}
-          />
+          /> */}
 
           {/* <Island
             position={islandPosition}
@@ -149,7 +152,7 @@ const Home = () => {
             isRotating={isRotating}
             rotation={[0, 20, 0]}
           /> */}
-          <Cosmonaut
+          {/* <Cosmonaut
             scale={0.005}
             position={[-1.5, -1.5, 8]}
             rotation-y={-0.05}
@@ -159,7 +162,9 @@ const Home = () => {
             isRotating={isRotating}
             position={[-47, -50, 0]}
             scale={[30, 25, 10]}
-          />
+            setIsRotating={setIsRotating}
+            setCurrentStage={setCurrentStage}
+          />  */}
         </Suspense>
       </Canvas>
 

@@ -18,7 +18,7 @@ const Galaxy = ({ isRotating, ...props }) => {
   });
 
   return (
-    <mesh ref={galaxyRef} layers={10} {...props}>
+    <mesh ref={galaxyRef} {...props}>
       <primitive object={scene} />
     </mesh>
   );
