@@ -14,7 +14,7 @@ const Galaxy = ({ isRotating, ...props }) => {
     }
 
     galaxyRef.current.scale.x += 0.00025;
-    galaxyRef.current.scale.y += 0.00035;
+    galaxyRef.current.scale.y += 0.000005;
   });
 
   return (

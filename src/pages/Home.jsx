@@ -90,7 +90,7 @@ const Home = () => {
           fov: 90,
           near: 1,
           far: 1000,
-          position: [0, 0, 10],
+          position: [0, 0, 12],
           rotation: [-0.35, 0, 0],
         }}
       >

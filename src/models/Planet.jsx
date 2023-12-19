@@ -25,7 +25,7 @@ const Planet = ({
   const moveToFourthStage = () => {
     if (rotateRight) {
       if (planetRef.current.position.x >= planetPositions.stageFour[0]) {
-        planetRef.current.position.x -= 0.175;
+        planetRef.current.position.x -= 0.275;
       }
 
       if (planetRef.current.position.y >= planetPositions.stageFour[1]) {
@@ -33,7 +33,7 @@ const Planet = ({
       }
 
       if (planetRef.current.position.z >= planetPositions.stageFour[2]) {
-        planetRef.current.position.z -= 0.075;
+        planetRef.current.position.z -= 0.095;
       }
 
       if (
@@ -48,16 +48,13 @@ const Planet = ({
   };
 
   const moveToThirdStage = () => {
-    if (defaultStage == 3) {
-      console.log(planetRef.current.position);
-    }
     if (rotateRight) {
       if (planetRef.current.position.x <= planetPositions.stageThree[0]) {
-        planetRef.current.position.x += 0.1625;
+        planetRef.current.position.x += 0.2;
       }
 
       if (planetRef.current.position.y <= planetPositions.stageThree[1]) {
-        planetRef.current.position.y += 0.035;
+        planetRef.current.position.y += 0.05;
       }
 
       if (planetRef.current.position.z >= planetPositions.stageThree[2]) {
@@ -75,20 +72,17 @@ const Planet = ({
   };
 
   const moveToSecondStage = () => {
-    if (defaultStage == 3) {
-      console.log(planetRef.current.position);
-    }
     if (rotateRight) {
       if (planetRef.current.position.x <= planetPositions.stageTwo[0]) {
-        planetRef.current.position.x += 0.185;
+        planetRef.current.position.x += 0.275;
       }
 
       if (planetRef.current.position.y >= planetPositions.stageTwo[1]) {
-        planetRef.current.position.y -= 0.035;
+        planetRef.current.position.y -= 0.05;
       }
 
       if (planetRef.current.position.z <= planetPositions.stageTwo[2]) {
-        planetRef.current.position.z += 0.01;
+        planetRef.current.position.z += 0.001;
       }
 
       if (
@@ -104,7 +98,7 @@ const Planet = ({
   const moveToFirstStage = () => {
     if (rotateRight) {
       if (planetRef.current.position.x >= planetPositions.stageOne[0]) {
-        planetRef.current.position.x -= 0.195;
+        planetRef.current.position.x -= 0.225;
       }
 
       if (planetRef.current.position.y >= planetPositions.stageOne[1]) {
@@ -112,7 +106,7 @@ const Planet = ({
       }
 
       if (planetRef.current.position.z <= planetPositions.stageOne[2]) {
-        planetRef.current.position.z += 0.125;
+        planetRef.current.position.z += 0.2;
       }
 
       if (
