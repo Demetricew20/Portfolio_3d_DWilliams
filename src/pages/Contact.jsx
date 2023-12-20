@@ -1,11 +1,10 @@
 import React, { useState, useRef, Suspense } from "react";
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
-// import Fox from "../models/Fox";
-import Loader from "../components/Loader";
 import useAlert from "../hooks/useAlert";
 import Alert from "../components/Alert";
 import Ufo from "../models/Ufo";
+import { Loader } from "@react-three/drei";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -159,7 +158,7 @@ const Contact = () => {
         >
           <directionalLight intensity={2.5} position={(0, 0, 1)} />
           <ambientLight intensity={0.5} />
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={null}>
             <Ufo
               currentAnimation={currentAnimation}
               isAbducting={isAbducting}

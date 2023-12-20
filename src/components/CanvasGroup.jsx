@@ -20,10 +20,6 @@ const CanvasGroup = ({
 }) => {
   const groupRef = useRef();
 
-  const { gl, viewport } = useThree();
-
-  const lastX = useRef(0);
-
   return (
     <a.group ref={groupRef}>
       <PlanetGroup
