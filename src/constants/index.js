@@ -3,14 +3,12 @@ import {
     shoppingCart,
     contact,
     css,
-    estate,
     github,
     html,
     javascript,
     linkedin,
     react,
     redux,
-    threads,
     dotNet,
     gitlab,
     bootstrap,
@@ -69,7 +67,7 @@ export const skills = [
     },
     {
         imageUrl: blazor,
-        name: "Telerik",
+        name: "Blazor",
         type: "Frontend",
     },
     {
