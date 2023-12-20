@@ -4,27 +4,25 @@ import {
     contact,
     css,
     estate,
-    express,
-    git,
     github,
     html,
     javascript,
     linkedin,
-    mongodb,
-    motion,
-    mui,
-    nextjs,
-    nodejs,
-    pricewise,
     react,
     redux,
-    sass,
-    snapgram,
-    summiz,
-    tailwindcss,
     threads,
-    typescript
+    dotNet,
+    gitlab,
+    bootstrap,
+    python,
+    sqlServer,
+    azure,
+    balsamiq,
+    telerik,
+    blazor,
 } from "../assets/icons";
+
+import { cSharp } from '../assets/icons/'
 
 export const skills = [
     {
@@ -33,14 +31,14 @@ export const skills = [
         type: "Frontend",
     },
     {
-        imageUrl: express,
-        name: "Express",
-        type: "Backend",
+        imageUrl: html,
+        name: "HTML",
+        type: "Frontend",
     },
     {
-        imageUrl: git,
-        name: "Git",
-        type: "Version Control",
+        imageUrl: bootstrap,
+        name: "Bootstrap",
+        type: "Frontend",
     },
     {
         imageUrl: github,
@@ -48,39 +46,38 @@ export const skills = [
         type: "Version Control",
     },
     {
-        imageUrl: html,
-        name: "HTML",
-        type: "Frontend",
+        imageUrl: gitlab,
+        name: "Gitlab",
+        type: "Version Control",
     },
     {
         imageUrl: javascript,
         name: "JavaScript",
         type: "Frontend",
+    }, {
+        imageUrl: cSharp,
+        name: "C#",
+        type: "Backend"
     },
     {
-        imageUrl: mongodb,
-        name: "MongoDB",
-        type: "Database",
+        imageUrl: dotNet,
+        name: ".Net Core",
+        type: "Framework",
     },
     {
-        imageUrl: motion,
-        name: "Motion",
-        type: "Animation",
-    },
-    {
-        imageUrl: mui,
-        name: "Material-UI",
+        imageUrl: blazor,
+        name: "Telerik",
         type: "Frontend",
     },
     {
-        imageUrl: nextjs,
-        name: "Next.js",
-        type: "Frontend",
-    },
-    {
-        imageUrl: nodejs,
-        name: "Node.js",
+        imageUrl: python,
+        name: "Python",
         type: "Backend",
+    },
+    {
+        imageUrl: sqlServer,
+        name: "Microsoft SQL server",
+        type: "DB Management",
     },
     {
         imageUrl: react,
@@ -93,19 +90,19 @@ export const skills = [
         type: "State Management",
     },
     {
-        imageUrl: sass,
-        name: "Sass",
-        type: "Frontend",
+        imageUrl: azure,
+        name: "Azure",
+        type: "Cloud computing platform",
     },
     {
-        imageUrl: tailwindcss,
-        name: "Tailwind CSS",
-        type: "Frontend",
+        imageUrl: balsamiq,
+        name: "Balsamiq",
+        type: "Design",
     },
     {
-        imageUrl: typescript,
-        name: "TypeScript",
-        type: "Frontend",
+        imageUrl: telerik,
+        name: "Telerik",
+        type: "UI Library",
     }
 ];
 
@@ -184,7 +181,7 @@ export const socialLinks = [
 
 export const projects = [
     {
-        iconUrl: pricewise,
+        iconUrl: '',
         theme: 'btn-back-red',
         name: 'Amazon Price Tracker',
         description: 'Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.',
@@ -205,7 +202,7 @@ export const projects = [
         link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
     },
     {
-        iconUrl: snapgram,
+        iconUrl: '',
         theme: 'btn-back-pink',
         name: 'Full Stack Instagram Clone',
         description: 'Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.',
@@ -219,7 +216,7 @@ export const projects = [
         link: 'https://github.com/adrianhajdin/projects_realestate',
     },
     {
-        iconUrl: summiz,
+        iconUrl: '',
         theme: 'btn-back-yellow',
         name: 'AI Summarizer Application',
         description: 'App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.',

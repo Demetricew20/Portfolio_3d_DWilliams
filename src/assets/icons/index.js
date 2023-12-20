@@ -18,14 +18,21 @@ import linkedin from './linkedin.svg'
 import twitter from './twitter.svg'
 import car from './car.svg'
 import estate from './estate.svg'
-import pricewise from './pricewise.svg'
-import snapgram from './snapgram.svg'
-import summiz from './summiz.svg'
 import threads from './threads.svg'
 import arrow from './arrow.svg'
 import contact from './contact.svg'
+import cSharp from './cSharp.svg'
+import dotNet from './dotNet.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import gitlab from './gitlab.svg'
+import bootstrap from './bootstrap.svg'
+import python from './python.svg'
+import sqlServer from './sqlServer.svg'
+import azure from "./azure.svg"
+import balsamiq from './balsamiq.png'
+import telerik from './telerik.svg'
+import blazor from './blazor.svg'
 
 export {
     css,
@@ -34,10 +41,7 @@ export {
     github,
     html,
     javascript,
-    mongodb,
-    motion,
-    mui,
-    nextjs,
+    sqlServer,
     nodejs,
     react,
     redux,
@@ -48,12 +52,18 @@ export {
     twitter,
     car,
     estate,
-    pricewise,
-    snapgram,
-    summiz,
     threads,
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    cSharp,
+    dotNet,
+    gitlab,
+    bootstrap,
+    python,
+    azure,
+    balsamiq,
+    telerik,
+    blazor
 }

@@ -18,8 +18,9 @@ const About = () => {
       </h1>
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
         <p>
-          Software Engineer based in San Antonio, TX specializing in .Net
-          framework.
+          I am a highly motivated software engineer with a strong passion for
+          front-end engineering who fully embraces teamwork but is very capable of working independently. My strong desire to build, learn, and teach is equally matched by my love of software development. 
+          I bring strong skills in team building, communication, and leadership that will help companies succeed. Through my love of software development, I plant to make a positive impact wherever and whenever I can.
         </p>
       </div>
 
