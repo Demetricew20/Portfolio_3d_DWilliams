@@ -1,16 +1,21 @@
 import React, { useState, useRef, Suspense } from "react";
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
-import Fox from "../models/Fox";
+// import Fox from "../models/Fox";
 import Loader from "../components/Loader";
 import useAlert from "../hooks/useAlert";
 import Alert from "../components/Alert";
+import Ufo from "../models/Ufo";
 
 const Contact = () => {
   const formRef = useRef(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isLoading, setIsLoading] = useState(false);
-  const [currentAnimation, setCurrentAnimation] = useState("idle");
+  const [currentAnimation, setCurrentAnimation] = useState("Hovering");
+  let [isHovering, setIsHovering] = useState(false);
+  let [isAbducting, setIsAbducting] = useState(false);
+  let [isZooming, setIsZooming] = useState(false);
+  let [resetPosition, setResetPosition] = useState(false);
   const { alert, showAlert, hideAlert } = useAlert();
 
   const handleChange = (e) => {
@@ -18,17 +23,24 @@ const Contact = () => {
   };
 
   const handleFocus = () => {
-    setCurrentAnimation("walk");
+    setIsAbducting(true);
+    setCurrentAnimation("Abduction Force Field");
   };
 
   const handleBlur = () => {
-    setCurrentAnimation("idle");
+    setResetPosition(true);
+
+    setIsHovering(true);
+    setIsAbducting(false);
+
+    setCurrentAnimation("Hovering");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsZooming(true);
+    setCurrentAnimation("Zooming");
     setIsLoading(true);
-    setCurrentAnimation("hit");
 
     emailjs.init(import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY);
 
@@ -56,9 +68,11 @@ const Contact = () => {
 
         setTimeout(() => {
           hideAlert();
-          setCurrentAnimation("idle");
+          setCurrentAnimation("Hovering");
+          setIsHovering(true);
+          setIsZooming(false);
           setForm({ name: "", email: "", message: "" });
-        }, 3000);
+        }, 5000);
       })
       .catch((error) => {
         setIsLoading(false);
@@ -67,15 +81,12 @@ const Contact = () => {
           text: "An Error has occurred.",
           type: "danger",
         });
-        setCurrentAnimation("idle");
-        console.log(error);
-        //todo: show error message
       });
   };
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
-      {alert.show &&  <Alert {...alert} />}
+      {alert.show && <Alert {...alert} />}
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Get in Touch</h1>
 
@@ -144,16 +155,19 @@ const Contact = () => {
       <div className="lg:w1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
         <Canvas
           id="foxCanvas"
-          camera={{ position: [0, 0, 5], fov: 75, near: 0.1, far: 1000 }}
+          camera={{ position: [0, 0, 10], fov: 100, near: 0.1, far: 1000 }}
         >
           <directionalLight intensity={2.5} position={(0, 0, 1)} />
           <ambientLight intensity={0.5} />
           <Suspense fallback={<Loader />}>
-            <Fox
+            <Ufo
               currentAnimation={currentAnimation}
-              position={[0.75, 0.35, 0]}
-              rotation={[12.6, -0.6, 0]}
-              scale={[0.5, 0.5, 0.5]}
+              isAbducting={isAbducting}
+              isZooming={isZooming}
+              isHovering={isHovering}
+              resetPosition={resetPosition}
+              rotation={[13, 5, 0]}
+              scale={3}
             />
           </Suspense>
         </Canvas>
