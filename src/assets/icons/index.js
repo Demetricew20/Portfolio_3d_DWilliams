@@ -34,6 +34,8 @@ import movie from './movie.svg'
 import disney from './disney.svg'
 import trash from './trash.svg'
 import study from './study.svg'
+import githubWhite from './github-white.svg'
+import linkedinRound from './linkedin-round.svg'
 
 export {
     css,
@@ -71,5 +73,7 @@ export {
     shoppingCart,
     disney,
     trash,
-    study
+    study,
+    githubWhite,
+    linkedinRound
 }

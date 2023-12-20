@@ -4,8 +4,15 @@ import Loader from "../components/Loader";
 import HomeInfo from "../components/HomeInfo";
 
 import outerSpaceSound from "../assets/outer_space.mp3";
-import { soundoff, soundon } from "../assets/icons";
+import {
+  githubWhite,
+  linkedin,
+  linkedinRound,
+  soundoff,
+  soundon,
+} from "../assets/icons";
 import CanvasGroup from "../components/CanvasGroup";
+import { socialLinks } from "../constants";
 
 const Home = () => {
   // audio
@@ -112,6 +119,24 @@ const Home = () => {
           className="w-10 h-10 cursor-pointer object-contain"
           onClick={() => handleSoundToggle()}
         />
+      </div>
+
+      <div className="absolute bottom-2 right-2">
+        <a href={socialLinks[1].link} target="_blank">
+          <img
+            src={githubWhite}
+            alt="sound"
+            className="w-10 h-10 cursor-pointer object-contain mb-5"
+          />
+        </a>
+
+        <a href={socialLinks[2].link} target="_blank">
+          <img
+            src={linkedinRound}
+            alt="sound"
+            className="w-10 h-10 cursor-pointer object-contain mb-5"
+          />
+        </a>
       </div>
     </section>
   );
