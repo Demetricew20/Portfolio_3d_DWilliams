@@ -1,6 +1,6 @@
 import { forvis, amu, devCodeCamp, airForce, army } from "../assets/images";
 import {
-    car,
+    shoppingCart,
     contact,
     css,
     estate,
@@ -20,7 +20,11 @@ import {
     balsamiq,
     telerik,
     blazor,
-    cSharp
+    cSharp,
+    movie,
+    disney,
+    trash,
+    study
 } from "../assets/icons";
 
 export const skills = [
@@ -196,46 +200,42 @@ export const socialLinks = [
 
 export const projects = [
     {
-        iconUrl: '',
-        theme: 'btn-back-red',
-        name: 'Amazon Price Tracker',
-        description: 'Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.',
-        link: 'https://github.com/adrianhajdin/pricewise',
-    },
-    {
-        iconUrl: threads,
-        theme: 'btn-back-green',
-        name: 'Full Stack Threads Clone',
-        description: 'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-        link: 'https://github.com/adrianhajdin/threads',
-    },
-    {
-        iconUrl: car,
-        theme: 'btn-back-blue',
-        name: 'Car Finding App',
-        description: 'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
-        link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
-    },
-    {
-        iconUrl: '',
-        theme: 'btn-back-pink',
-        name: 'Full Stack Instagram Clone',
-        description: 'Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.',
-        link: 'https://github.com/adrianhajdin/social_media_app',
-    },
-    {
-        iconUrl: estate,
-        theme: 'btn-back-black',
-        name: 'Real-Estate Application',
-        description: 'Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.',
-        link: 'https://github.com/adrianhajdin/projects_realestate',
-    },
-    {
-        iconUrl: '',
+        iconUrl: shoppingCart,
         theme: 'btn-back-yellow',
-        name: 'AI Summarizer Application',
-        description: 'App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.',
-        link: 'https://github.com/adrianhajdin/project_ai_summarizer',
+        name: 'Amazon Clone',
+        description: 'Replicated version of Amazon where users can create an account, add products to their cart, make simulated payments via Stripe, and view their order history.',
+        deployLink: 'https://clone-fbc7a.web.app/',
+        projectLink: 'https://github.com/Demetricew20/Amazon_Clone'
+    },
+    {
+        iconUrl: movie,
+        theme: 'btn-back-red',
+        name: 'Netflix Clone',
+        description: 'Netflix clone project built using React, Redux, Firebase, Strip, and Google authentication. Users can create an account and mimic subscription payments. Data is pulled from IMDb API.',
+        projectLink: 'https://github.com/Demetricew20/NetflixClone',
+        deployLink: 'https://netflix-clone-fd696.firebaseapp.com/'
+    },
+    {
+        iconUrl: disney,
+        theme: 'btn-back-blue',
+        name: 'Disney Clone',
+        description: 'Disney-plus Clone developed using ReactJS (Learned Redux, React JS, Styled Components, and Firebase)',
+        deployLink: 'https://disney-plus-clone-40446.web.app/',
+        projectLink: 'https://github.com/Demetricew20/Disney_Plus_Clone'
+    },
+    {
+        iconUrl: trash,
+        theme: 'btn-back-black',
+        name: 'Trash Collector',
+        description: 'Web app for private mock waste management company utilizing Python, Django, and MySQL.',
+        projectLink: 'https://github.com/Demetricew20/TrashCollector',
+    },
+    {
+        iconUrl: study,
+        theme: 'btn-back-green',
+        name: 'Stack Study',
+        description: 'Responsive flashcard application built with React, Python, Django, and MySQL that allows users to create cards and card collections for studying.',
+        projectLink: 'https://github.com/Demetricew20/Flashcards_UI',
     }
 ];
 

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { projects } from "../constants";
 import { arrow } from "../assets/icons";
+import { GitHub } from "@mui/icons-material";
+import LinkIcon from "@mui/icons-material/Link";
 import CTA from "../components/CTA";
 
 const Projects = () => {
@@ -12,14 +14,9 @@ const Projects = () => {
           Projects
         </span>
       </h1>
-      <div className="mt-5 flex flex-col gap-3 text-slate-500">
-        <p>
-          More info will go here to describe projects as well as experienced
-          gained from each project.
-        </p>
-      </div>
+      <div className="mt-5 flex flex-col gap-3 text-slate-500"></div>
 
-      <div className="flex flex-wrap my-20 gap-16">
+      <div className="flex flex-wrap mt-10 mb-20 gap-16">
         {projects.map((project) => (
           <div className="lg:w-[400px] w-full" key={project.name}>
             <div className="block-container w-12 h-12">
@@ -39,19 +36,30 @@ const Projects = () => {
               </h4>
               <p className="mt-2 text-slate-500">{project.description}</p>
               <div className="mt-5 flex items-center gap-2 font-poppins">
-                <Link
-                  to={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-blue-600"
-                >
-                  Project Link
-                </Link>
-                <img
-                  src={arrow}
-                  alt="arrow"
-                  className="w-4 h-4 object-contain"
-                />
+                {project.deployLink ? (
+                  <Link
+                    to={project.deployLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-blue-600"
+                  >
+                    <LinkIcon />
+                  </Link>
+                ) : (
+                  ""
+                )}
+                {project.projectLink ? (
+                  <Link
+                    to={project.projectLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-black"
+                  >
+                    <GitHub />
+                  </Link>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>

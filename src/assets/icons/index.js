@@ -29,6 +29,11 @@ import azure from "./azure.svg"
 import balsamiq from './balsamiq.png'
 import telerik from './telerik.png'
 import blazor from './blazor.svg'
+import shoppingCart from './shoppingCart.svg'
+import movie from './movie.svg'
+import disney from './disney.svg'
+import trash from './trash.svg'
+import study from './study.svg'
 
 export {
     css,
@@ -61,5 +66,10 @@ export {
     azure,
     balsamiq,
     telerik,
-    blazor
+    blazor,
+    movie,
+    shoppingCart,
+    disney,
+    trash,
+    study
 }
