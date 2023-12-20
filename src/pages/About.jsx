@@ -19,8 +19,12 @@ const About = () => {
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
         <p>
           I am a highly motivated software engineer with a strong passion for
-          front-end engineering who fully embraces teamwork but is very capable of working independently. My strong desire to build, learn, and teach is equally matched by my love of software development. 
-          I bring strong skills in team building, communication, and leadership that will help companies succeed. Through my love of software development, I plant to make a positive impact wherever and whenever I can.
+          front-end engineering who fully embraces teamwork but is very capable
+          of working independently. My strong desire to build, learn, and teach
+          is equally matched by my love of software development. I bring strong
+          skills in team building, communication, and leadership that will help
+          companies succeed. Through my love of software development, I plan to
+          make a positive impact wherever and whenever I can.
         </p>
       </div>
 
@@ -29,13 +33,17 @@ const About = () => {
 
         <div className="mt-16 flex flex-wrap gap-12">
           {skills.map((skill, index) => (
-            <div key={index} className="block-container w-20 h-20">
+            <div
+              key={index}
+              className="block-container w-20 h-20"
+              title={skill.name}
+            >
               <div className="btn-back rounded-xl" />
               <div className="btn-front rounded-xl flex justify-center items-center">
                 <img
                   src={skill.imageUrl}
                   alt={skill.name}
-                  className="w-1/2 h-1/2 object-contain"
+                  className="h-75 object-contain"
                 />
               </div>
             </div>
@@ -45,14 +53,13 @@ const About = () => {
 
       <div className="py-16">
         <h3 className="subhead-text">Work Experience</h3>
-        <div className="mt-5 flex flex-col gap-3 text-slate-500">
+        {/* <div className="mt-5 flex flex-col gap-3 text-slate-500">
           <p>
-            I've worked will all sorts of companies, gaining new skills and
-            teaming up with smart people. Here's my history:
+            Within my 3 years of software development experience I have had multiple opportunities to carry projects from start to finish having a hand in all aspects of the software development life cycle 
           </p>
-        </div>
+        </div> */}
 
-        <div className="mt-12 flex">
+        <div className="mt-10 flex">
           <VerticalTimeline>
             {experiences.map((experience, index) => (
               <VerticalTimelineElement

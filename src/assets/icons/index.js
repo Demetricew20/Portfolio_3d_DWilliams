@@ -31,7 +31,7 @@ import python from './python.svg'
 import sqlServer from './sqlServer.svg'
 import azure from "./azure.svg"
 import balsamiq from './balsamiq.png'
-import telerik from './telerik.svg'
+import telerik from './telerik.png'
 import blazor from './blazor.svg'
 
 export {
