@@ -108,58 +108,68 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",
+        title: "Software Engineer",
+        company_name: "FORVIS",
         icon: starbucks,
         iconBg: "#accbe1",
-        date: "March 2020 - April 2021",
+        date: "July 2021 - Current",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
+            "Designed and presented mockups/wireframes for stakeholder approval",
+            "Performed as a Lead Software Engineer on multiple projects.",
+            "Built RESTful APIs that serve both Blazor framework and JavaScript libraries",
+            "Established team standards by creating and implementing design guides and application templates.",
             "Participating in code reviews and providing constructive feedback to other developers.",
+            "Designed and implemented UI features for new and existing projects.",
+            "Ensured proper documentation and reports throughout all stages of the software development lifecycle"
         ],
     },
     {
-        title: "React Native Developer",
-        company_name: "Tesla",
+        title: "Human Resources Assistant",
+        company_name: "United States Air Force",
         icon: tesla,
         iconBg: "#fbc3bc",
-        date: "Jan 2021 - Feb 2022",
+        date: "Oct 2020 - Mar 2021",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Provided office automation support for processing of military personnel using multiple office automation software with varied functions.",
+            "Organized soldier orientation schedules for all incoming soldiers.",
+            "Briefed incoming soldiers on daily tasks.",
+            "Prepared monthly, weekly, and daily logs using Microsoft Office Suite."
         ],
     },
     {
-        title: "Web Developer",
-        company_name: "Shopify",
+        title: "Sergeant",
+        company_name: "United States Army",
         icon: shopify,
         iconBg: "#b7e4c7",
-        date: "Jan 2022 - Jan 2023",
+        date: "Dec 2016 - Oct 2020",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Supervised soldiers and provided technical guidance to ensure the accomplishment of all unit missions.",
+            "Responsible for the ordering, receiving, issuing, and accountable of individual, organizational, installation, and expendable supplies and equipment.",
+            "Utilized Microsoft Excel worksheets and PowerPoint presentations to develop, publish, and present unit training requirements and training schedules.",
+            "Planned, coordinated, and training events including multiple companies.",
+            "Created, organized, and taught classes relating to communications for internal unit training."
         ],
+    },
+
+];
+
+export const education = [
+    {
+        schoolName: "American Military University",
+        yearCompleted: "Oct 2021",
+        program: "Bachelors of Arts - BA, Management"
     },
     {
-        title: "Full stack Developer",
-        company_name: "Meta",
-        icon: meta,
-        iconBg: "#a2d2ff",
-        date: "Jan 2023 - Present",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
+        schoolName: "DevCodeCamp",
+        yearCompleted: "June 2021",
+        program: "Full-Stack Software Development"
     },
-];
+    {
+        schoolName: "American Military University",
+        yearCompleted: "Dec 2019",
+        program: "General Studies"
+    }
+]
 
 export const socialLinks = [
     {
@@ -170,12 +180,12 @@ export const socialLinks = [
     {
         name: 'GitHub',
         iconUrl: github,
-        link: 'https://github.com/YourGitHubUsername',
+        link: 'https://github.com/Demetricew20',
     },
     {
         name: 'LinkedIn',
         iconUrl: linkedin,
-        link: 'https://www.linkedin.com/in/YourLinkedInUsername',
+        link: 'https://www.linkedin.com/in/demetricewilliams/',
     }
 ];
 
