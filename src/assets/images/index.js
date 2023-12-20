@@ -1,15 +1,16 @@
-import hero from './hero.jpg'
-import meta from './meta.png'
-import shopify from './shopify.png'
-import starbucks from './starbucks.png'
-import tesla from './tesla.png'
+
 import logo from './logo.svg'
+import amu from './amu.png'
+import devCodeCamp from './devCodeCamp.png'
+import airForce from './airForce.png'
+import army from './army.png'
+import forvis from './forvis.png'
 
 export {
-    hero,
-    meta,
-    shopify,
-    starbucks,
-    tesla,
-    logo
+    logo,
+    amu,
+    devCodeCamp,
+    army,
+    airForce,
+    forvis
 }

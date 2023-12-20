@@ -1,4 +1,4 @@
-import { meta, shopify, starbucks, tesla } from "../assets/images";
+import { forvis, amu, devCodeCamp, airForce, army } from "../assets/images";
 import {
     car,
     contact,
@@ -20,9 +20,8 @@ import {
     balsamiq,
     telerik,
     blazor,
+    cSharp
 } from "../assets/icons";
-
-import { cSharp } from '../assets/icons/'
 
 export const skills = [
     {
@@ -110,8 +109,8 @@ export const experiences = [
     {
         title: "Software Engineer",
         company_name: "FORVIS",
-        icon: starbucks,
-        iconBg: "#accbe1",
+        icon: forvis,
+        iconBg: "#CB0909",
         date: "July 2021 - Current",
         points: [
             "Designed and presented mockups/wireframes for stakeholder approval",
@@ -126,8 +125,8 @@ export const experiences = [
     {
         title: "Human Resources Assistant",
         company_name: "United States Air Force",
-        icon: tesla,
-        iconBg: "#fbc3bc",
+        icon: airForce,
+        iconBg: "#d3d7de",
         date: "Oct 2020 - Mar 2021",
         points: [
             "Provided office automation support for processing of military personnel using multiple office automation software with varied functions.",
@@ -139,8 +138,8 @@ export const experiences = [
     {
         title: "Sergeant",
         company_name: "United States Army",
-        icon: shopify,
-        iconBg: "#b7e4c7",
+        icon: army,
+        iconBg: "#FEE038",
         date: "Dec 2016 - Oct 2020",
         points: [
             "Supervised soldiers and provided technical guidance to ensure the accomplishment of all unit missions.",
@@ -157,17 +156,23 @@ export const education = [
     {
         schoolName: "American Military University",
         yearCompleted: "Oct 2021",
-        program: "Bachelors of Arts - BA, Management"
+        program: "Bachelors of Arts - BA, Management",
+        icon: amu,
+        iconBg: "#ffffff",
     },
     {
         schoolName: "DevCodeCamp",
         yearCompleted: "June 2021",
-        program: "Full-Stack Software Development"
+        program: "Full-Stack Software Development",
+        icon: devCodeCamp,
+        iconBg: "#d0d4d6"
     },
     {
         schoolName: "American Military University",
         yearCompleted: "Dec 2019",
-        program: "General Studies"
+        program: "General Studies",
+        icon: amu,
+        iconBg: "#ffffff",
     }
 ]
 
