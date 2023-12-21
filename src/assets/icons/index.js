@@ -27,6 +27,7 @@ import trash from './trash.svg'
 import study from './study.svg'
 import githubWhite from './github-white.svg'
 import linkedinRound from './linkedin-round.svg'
+import articleSearch from './article-search.svg'
 
 export {
     css,
@@ -57,5 +58,6 @@ export {
     trash,
     study,
     githubWhite,
-    linkedinRound
+    linkedinRound,
+    articleSearch
 }

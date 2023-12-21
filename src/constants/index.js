@@ -22,7 +22,8 @@ import {
     movie,
     disney,
     trash,
-    study
+    study,
+    articleSearch
 } from "../assets/icons";
 
 export const skills = [
@@ -220,6 +221,14 @@ export const projects = [
         description: 'Disney-plus Clone developed using ReactJS (Learned Redux, React JS, Styled Components, and Firebase)',
         deployLink: 'https://disney-plus-clone-40446.web.app/',
         projectLink: 'https://github.com/Demetricew20/Disney_Plus_Clone'
+    },
+    {
+        iconUrl: articleSearch,
+        theme: 'btn-back-orange',
+        name: 'Sumzit',
+        description: "Article Summarizer App using OpenAI's GPT model. Built with React, Redux, and Tailwind css.",
+        projectLink: 'https://github.com/Demetricew20/SumzIt',
+        deployLink: 'https://sumzit-d5185.firebaseapp.com/'
     },
     {
         iconUrl: trash,
