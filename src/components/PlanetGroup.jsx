@@ -41,7 +41,14 @@ const PlanetGroup = ({
     e.preventDefault();
     setIsRotating(true);
 
-    const screenWidth = e.srcElement.width;
+    let screenWidth = e.srcElement.width;
+
+    console.log(e);
+
+    if (e.pointerType === "touch") {
+      //mobile device
+      screenWidth = e.view.screen.availWidth;
+    }
 
     const halfWidth = screenWidth / 2;
 
@@ -49,7 +56,6 @@ const PlanetGroup = ({
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 
     lastX.current = clientX;
-
     //will need to use breakpoints if I use this method
     if (clientX > halfWidth) {
       setRotatingRight(true);
@@ -61,11 +67,12 @@ const PlanetGroup = ({
   };
 
   const handleKeyDown = (e) => {
+    setIsRotating(true);
     if (e.key === "ArrowLeft") {
-      // setRotatingLeft(true);
-      // setRotatingRight(false);
+      setRotatingLeft(true);
+      setRotatingRight(false);
     } else if (e.key === "ArrowRight") {
-      setIsRotating(true);
+      setRotatingLeft(false);
       setRotatingRight(true);
     }
   };
