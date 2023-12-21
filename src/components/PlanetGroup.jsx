@@ -76,6 +76,83 @@ const PlanetGroup = ({
     }
   };
 
+  const adjustTreasurePlanet = () => {
+    let screenScale = null;
+    // let screenPosition = [0, -6.5, -43];
+    let screenPosition = planetPositions.stageOne;
+    let rotation = [0, 0, 0];
+
+    if (window.innerWidth < 768 && window.innerWidth > 480) {
+      screenScale = [0.0475, 0.035, 0.05];
+    } else if (window.innerWidth <= 480) {
+      screenScale = [0.035, 0.025, 0.045];
+    } else {
+      screenScale = [0.055, 0.035, 0.05];
+    }
+
+    return [screenScale, screenPosition, rotation];
+  };
+
+  const adjustAlienPlanet = () => {
+    let screenScale = null;
+    let screenPosition = planetPositions.stageFour;
+    let rotation = [0, 0, 0];
+
+    if (window.innerWidth < 768 && window.innerWidth > 480) {
+      screenScale = [1, 1, 1];
+    } else if (window.innerWidth <= 480) {
+      screenScale = [0.75, 0.85, 1];
+    } else {
+      screenScale = [1, 1, 1];
+    }
+
+    return [screenScale, screenPosition, rotation];
+  };
+
+  const adjustZenPlanet = () => {
+    let screenScale = null;
+    let screenPosition = planetPositions.stageTwo;
+    let rotation = [0, 0, 0];
+
+    if (window.innerWidth < 768 && window.innerWidth > 480) {
+      screenScale = [0.75, 0.5, 0.75];
+    } else if (window.innerWidth <= 480) {
+      screenScale = [0.65, 0.5, 0.5];
+    } else {
+      screenScale = [0.95, 0.675, 0.75];
+    }
+
+    return [screenScale, screenPosition, rotation];
+  };
+
+  const adjustMonsterPlanet = () => {
+    let screenScale = null;
+    let screenPosition = planetPositions.stageThree;
+    let rotation = [0, 0.25, 0];
+
+    if (window.innerWidth > 480 && window.innerWidth < 768) {
+      screenScale = [0.25, 0.275, 0.25];
+    } else if (window.innerWidth <= 480) {
+      screenScale = [0.175, 0.2, 0.3];
+    } else {
+      screenScale = [0.25, 0.275, 0.25];
+    }
+
+    return [screenScale, screenPosition, rotation];
+  };
+
+  const [treasurePlanetScale, treasurePlanetPosition, treasurePlanetRotation] =
+    adjustTreasurePlanet();
+
+  const [zenPlanetScale, zenPlanetPosition, zenPlanetRotation] =
+    adjustZenPlanet();
+
+  const [monsterPlanetScale, monsterPlanetPosition, monsterPlanetRotation] =
+    adjustMonsterPlanet();
+
+  const [alienPlanetScale, alienPlanetPosition, alienPlanetRotation] =
+    adjustAlienPlanet();
+
   useFrame(() => {
     if (!isRotating) {
       // // makes models slower as they come to a complete stop
@@ -132,14 +209,12 @@ const PlanetGroup = ({
     // event listeners that allow us to rotate using touch device, mouse, or keyboard
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointerdown", handlePointerDown);
-    // canvas.addEventListener("pointermove", handlePointerMove);
     document.addEventListener("keyup", handleKeyUp);
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       canvas.removeEventListener("pointerup", handlePointerUp);
       canvas.removeEventListener("pointerdown", handlePointerDown);
-      // canvas.removeEventListener("pointermove", handlePointerMove);
       document.removeEventListener("keyup", handleKeyUp);
       document.removeEventListener("keydown", handleKeyDown);
     };
@@ -154,10 +229,10 @@ const PlanetGroup = ({
         rotateRight={rotatingRight}
         rotateLeft={rotatingLeft}
         isRotating={isRotating}
-        position={planetPositions.stageOne}
+        position={treasurePlanetPosition}
         setCurrentStage={setCurrentStage}
-        scale={[0.055, 0.035, 0.05]}
-        rotation-y={0.25}
+        scale={treasurePlanetScale}
+        rotation={treasurePlanetRotation}
       />
 
       {/* Zen Planet */}
@@ -166,11 +241,12 @@ const PlanetGroup = ({
         rotateRight={rotatingRight}
         rotateLeft={rotatingLeft}
         isRotating={isRotating}
-        position={planetPositions.stageTwo}
+        position={zenPlanetPosition}
         planetScene={zenPlanetScene}
         defaultStage={2}
+        rotation={zenPlanetRotation}
         setCurrentStage={setCurrentStage}
-        scale={[0.95, 0.675, 0.75]}
+        scale={zenPlanetScale}
       />
       {/* Monster Planet */}
 
@@ -178,12 +254,12 @@ const PlanetGroup = ({
         isRotating={isRotating}
         rotateRight={rotatingRight}
         rotateLeft={rotatingLeft}
-        position={planetPositions.stageThree}
-        scale={[0.25, 0.275, 0.25]}
+        position={monsterPlanetPosition}
+        scale={monsterPlanetScale}
         planetScene={monsterPlanetScene}
         defaultStage={3}
         setCurrentStage={setCurrentStage}
-        rotation-y={1.25}
+        rotation={monsterPlanetRotation}
       />
       {/* Alien Planet */}
 
@@ -191,12 +267,12 @@ const PlanetGroup = ({
         isRotating={isRotating}
         rotateRight={rotatingRight}
         rotateLeft={rotatingLeft}
-        position={planetPositions.stageFour}
+        position={alienPlanetPosition}
         defaultStage={4}
         planetScene={alienPlanetScene}
         setCurrentStage={setCurrentStage}
-        scale={[1.35, 1, 1.15]}
-        rotation-y={0.15}
+        scale={alienPlanetScale}
+        rotation={alienPlanetRotation}
       />
     </a.group>
   );

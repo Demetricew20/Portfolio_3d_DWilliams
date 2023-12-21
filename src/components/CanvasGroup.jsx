@@ -20,6 +20,27 @@ const CanvasGroup = ({
 }) => {
   const groupRef = useRef();
 
+  const adjustCosmonaut = () => {
+    let screenScale = null;
+    // let screenPosition = [0, -6.5, -43];
+    let screenPosition = [-2.5, -1.5, 8];
+    let rotation = [0, 0, 0];
+
+    if (window.innerWidth < 768 && window.innerWidth > 480) {
+      screenScale = 0.0055;
+    } else if (window.innerWidth <= 480) {
+      screenPosition = [-1.35, -2, 8];
+      screenScale = 0.00375;
+    } else {
+      screenScale = 0.0055;
+    }
+
+    return [screenScale, screenPosition, rotation];
+  };
+
+  const [cosmonautScale, cosmonautPosition, cosmonautRotation] =
+    adjustCosmonaut();
+
   return (
     <a.group ref={groupRef}>
       <PlanetGroup
@@ -31,7 +52,11 @@ const CanvasGroup = ({
 
       <Earth isRotating={isRotating} position={[0, -2.5, -4]} scale={0.75} />
 
-      <Cosmonaut scale={0.0055} position={[-2.5, -1.5, 8]} rotation-y={-0.05} />
+      <Cosmonaut
+        scale={cosmonautScale}
+        position={cosmonautPosition}
+        rotation={cosmonautRotation}
+      />
 
       <Galaxy
         isRotating={isRotating}

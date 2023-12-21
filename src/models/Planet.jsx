@@ -312,8 +312,6 @@ const Planet = ({
     <mesh
       {...props}
       ref={planetRef}
-      onPointerEnter={(event) => (event.stopPropagation(), setIsHovered(true))}
-      onPointerLeave={(event) => setIsHovered(false)}
     >
       <primitive object={scene} />
     </mesh>

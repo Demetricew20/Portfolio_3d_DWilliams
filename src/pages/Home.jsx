@@ -35,40 +35,6 @@ const Home = ({ isLoadingCanvas, setIsLoadingCanvas, ...props }) => {
     };
   }, [isPlayingMusic]);
 
-  const adjustPlanetForScreenSize = () => {
-    let screenScale = null;
-    let screenPosition = [0, -6.5, -43];
-    let rotation = [0.1, 4.7, 0];
-
-    if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
-    } else {
-      screenScale = [1, 1, 1];
-    }
-
-    return [screenScale, screenPosition, rotation];
-  };
-
-  // const adjustPlaneForScreenSize = () => {
-  //   let screenScale = null;
-  //   let screenPosition = null;
-
-  //   if (window.innerWidth < 768) {
-  //     screenScale = [1.5, 1.5, 1.5];
-  //     screenPosition = [0, -1.5, 0];
-  //   } else {
-  //     screenScale = [3, 3, 3];
-  //     screenPosition = [-3, -4, -3];
-  //   }
-
-  //   return [screenScale, screenPosition];
-  // };
-
-  const [islandScale, islandPosition, islandRotation] =
-    adjustPlanetForScreenSize();
-
-  // const [planeScale, planePosition] = adjustPlaneForScreenSize();
-
   const handleSoundToggle = () => {
     isPlayingMusic = !isPlayingMusic;
     setIsPlayingMusic(isPlayingMusic);
@@ -146,7 +112,7 @@ const Home = ({ isLoadingCanvas, setIsLoadingCanvas, ...props }) => {
               <img
                 src={linkedinRound}
                 alt="sound"
-                className="w-10 h-10 cursor-pointer object-contain mb-5"
+                className="w-10 h-10 cursor-pointer object-contain"
               />
             </a>
           </div>
