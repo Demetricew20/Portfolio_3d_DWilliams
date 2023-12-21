@@ -119,6 +119,11 @@ body:has(.card[data-color="green"]:hover) {
   box-shadow: 16px 0 40px #e4e4e4;
 }
 
+.helper-text {
+  color: rgba(225, 225, 225, .75);
+  font-size: 14px;
+}
+
 .block-container .btn-back-red {
   background: linear-gradient(135deg, #ff4b1f -20%, #ff9068 120%);
 }

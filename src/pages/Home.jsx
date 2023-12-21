@@ -99,6 +99,15 @@ const Home = ({ isLoadingCanvas, setIsLoadingCanvas, ...props }) => {
             />
           </div>
 
+          {!isRotating && (
+            <div className="absolute bottom-2 text-center w-full helper-text">
+              <span>
+                Rotate planets with arrow keys or clicking left/right side of
+                screen
+              </span>
+            </div>
+          )}
+
           <div className="absolute bottom-2 right-2">
             <a href={socialLinks[1].link} target="_blank">
               <img
