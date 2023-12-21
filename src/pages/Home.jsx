@@ -15,6 +15,7 @@ import { socialLinks } from "../constants";
 import { Loader } from "@react-three/drei";
 
 const Home = ({ isLoadingCanvas, setIsLoadingCanvas, ...props }) => {
+  const sectionRef = useRef();
   // audio
   const audioRef = useRef(new Audio(outerSpaceSound));
   audioRef.current.volume = 0.4;
@@ -80,7 +81,7 @@ const Home = ({ isLoadingCanvas, setIsLoadingCanvas, ...props }) => {
   };
 
   return (
-    <section className="w-full h-screen relative">
+    <section className="w-full h-screen relative" ref={sectionRef}>
       <div className="absolute top-20 left-0 right-0 z-10 flex items-center justify-center">
         {currentStage && isLoadingCanvas == false && (
           <HomeInfo currentStage={currentStage} />
@@ -121,32 +122,36 @@ const Home = ({ isLoadingCanvas, setIsLoadingCanvas, ...props }) => {
       </Canvas>
       <Loader initialState={(active) => handleLoading()} />
 
-      <div className="absolute bottom-2 left-2">
-        <img
-          src={!isPlayingMusic ? soundon : soundoff}
-          alt="sound"
-          className="w-10 h-10 cursor-pointer object-contain"
-          onClick={() => handleSoundToggle()}
-        />
-      </div>
+      {!isLoadingCanvas && (
+        <div>
+          <div className="absolute bottom-2 left-2">
+            <img
+              src={!isPlayingMusic ? soundon : soundoff}
+              alt="sound"
+              className="w-10 h-10 cursor-pointer object-contain"
+              onClick={() => handleSoundToggle()}
+            />
+          </div>
 
-      <div className="absolute bottom-2 right-2">
-        <a href={socialLinks[1].link} target="_blank">
-          <img
-            src={githubWhite}
-            alt="sound"
-            className="w-10 h-10 cursor-pointer object-contain mb-5"
-          />
-        </a>
+          <div className="absolute bottom-2 right-2">
+            <a href={socialLinks[1].link} target="_blank">
+              <img
+                src={githubWhite}
+                alt="sound"
+                className="w-10 h-10 cursor-pointer object-contain mb-5"
+              />
+            </a>
 
-        <a href={socialLinks[2].link} target="_blank">
-          <img
-            src={linkedinRound}
-            alt="sound"
-            className="w-10 h-10 cursor-pointer object-contain mb-5"
-          />
-        </a>
-      </div>
+            <a href={socialLinks[2].link} target="_blank">
+              <img
+                src={linkedinRound}
+                alt="sound"
+                className="w-10 h-10 cursor-pointer object-contain mb-5"
+              />
+            </a>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -46,6 +46,26 @@ const Planet = ({
         setFirstStage(false);
       }
     } else {
+      //will rotate from stage three
+      if (planetRef.current.position.x >= planetPositions.stageFour[0]) {
+        planetRef.current.position.x -= 0.275;
+      }
+
+      if (planetRef.current.position.y >= planetPositions.stageFour[1]) {
+        planetRef.current.position.y -= 0.0475;
+      }
+
+      if (planetRef.current.position.z <= planetPositions.stageFour[2]) {
+        planetRef.current.position.z += 0.095;
+      }
+
+      if (
+        planetRef.current.position.x <= planetPositions.stageFour[0] &&
+        planetRef.current.position.y <= planetPositions.stageFour[1]
+      ) {
+        setFourthStage(true);
+        setThirdStage(false);
+      }
     }
   };
 
@@ -69,6 +89,26 @@ const Planet = ({
       ) {
         setThirdStage(true);
         setFourthStage(false);
+      }
+    } else {
+      if (planetRef.current.position.x >= planetPositions.stageThree[0]) {
+        planetRef.current.position.x -= 0.275;
+      }
+
+      if (planetRef.current.position.y <= planetPositions.stageThree[1]) {
+        planetRef.current.position.y += 0.05;
+      }
+
+      if (planetRef.current.position.z >= planetPositions.stageThree[2]) {
+        planetRef.current.position.z -= 0.035;
+      }
+
+      if (
+        planetRef.current.position.x >= planetPositions.stageThree[0] &&
+        planetRef.current.position.y >= planetPositions.stageThree[1]
+      ) {
+        setThirdStage(true);
+        setSecondStage(false);
       }
     }
   };
@@ -94,6 +134,27 @@ const Planet = ({
         setSecondStage(true);
         setThirdStage(false);
       }
+    } else {
+      //moving from first stage to second
+      if (planetRef.current.position.x <= planetPositions.stageTwo[0]) {
+        planetRef.current.position.x += 0.275;
+      }
+
+      if (planetRef.current.position.y <= planetPositions.stageTwo[1]) {
+        planetRef.current.position.y += 0.05;
+      }
+
+      if (planetRef.current.position.z >= planetPositions.stageTwo[2]) {
+        planetRef.current.position.z -= 0.1;
+      }
+
+      if (
+        planetRef.current.position.x >= planetPositions.stageTwo[0] &&
+        planetRef.current.position.y >= planetPositions.stageTwo[1]
+      ) {
+        setSecondStage(true);
+        setFirstStage(false);
+      }
     }
   };
 
@@ -118,6 +179,28 @@ const Planet = ({
         setCurrentStage(defaultStage);
         setFirstStage(true);
         setSecondStage(false);
+      }
+    } else {
+      //from fourth stage to first
+      if (planetRef.current.position.x <= planetPositions.stageOne[0]) {
+        planetRef.current.position.x += 0.275;
+      }
+
+      if (planetRef.current.position.y <= planetPositions.stageOne[1]) {
+        planetRef.current.position.y += 0.035;
+      }
+
+      if (planetRef.current.position.z <= planetPositions.stageOne[2]) {
+        planetRef.current.position.z += 0.2;
+      }
+
+      if (
+        planetRef.current.position.x >= planetPositions.stageOne[0] &&
+        planetRef.current.position.y >= planetPositions.stageOne[1]
+      ) {
+        setCurrentStage(defaultStage);
+        setFirstStage(true);
+        setFourthStage(false);
       }
     }
   };
@@ -186,14 +269,6 @@ const Planet = ({
 
     if (isRotating) {
       if (rotateRight) {
-        // if (
-        //   planetRef.current.position.x <= planetPositions.stageOne[0] &&
-        //   planetRef.current.position.y <= planetPositions.stageOne[1] &&
-        //   !isFirstStage
-        // ) {
-        //   setFirstStage(true);
-        // }
-
         if (isFirstStage) {
           moveToFourthStage();
         }
@@ -210,19 +285,28 @@ const Planet = ({
           moveToThirdStage();
         }
       } else {
-        planetRef.current.position.x += 0.05;
-        planetRef.current.position.z += 0.035;
+        if (isFirstStage) {
+          moveToSecondStage();
+        }
+
+        if (isSecondStage) {
+          moveToThirdStage();
+        }
+
+        if (isThirdStage) {
+          moveToFourthStage();
+        }
+
+        if (isFourthStage) {
+          moveToFirstStage();
+        }
       }
-      // planetRef.current.position.x -= 0.005;
-      // planetRef.current.position.z -= 0.0004;
     }
   });
 
   useEffect(() => {
     setStage();
   }, [defaultStage]);
-
-  scene.renderOrder = 1;
 
   return (
     <mesh

@@ -36,43 +36,27 @@ const PlanetGroup = ({
     setIsRotating(false);
   };
 
-  // const handlePointerMove = (e) => {
-  //   e.stopPropagation();
-  //   e.preventDefault();
-
-  //   if (isRotating) {
-  //     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-
-  //     //calculates change in horizontal position
-  //     const delta = (clientX - lastX.current) / viewport.width;
-
-  //     groupRef.current.rotation.y += delta * 0.01 * Math.PI;
-
-  //     lastX.current = clientX;
-
-  //     rotationSpeed.current = delta * 0.01 * Math.PI;
-  //   }
-  // };
-
   const handlePointerDown = (e) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
+
+    const screenWidth = e.srcElement.width;
+
+    const halfWidth = screenWidth / 2;
 
     //figures out if we are using mobile (touches) or desktop device the grabs x position
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 
     lastX.current = clientX;
 
-    console.log(clientX);
-
     //will need to use breakpoints if I use this method
-    if (clientX > 700) {
+    if (clientX > halfWidth) {
       setRotatingRight(true);
       setRotatingLeft(false);
     } else {
-      // setRotatingLeft(true);
-      // setRotatingRight(false);
+      setRotatingLeft(true);
+      setRotatingRight(false);
     }
   };
 
